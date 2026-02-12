@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Date Planner 💕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* BODY WITH SOFT SIDE PANELS */
+body{
+  font-family:'Poppins', sans-serif;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f8cdda;
+  padding:40px 15px;
+}
+
+
+/* TABLET STYLE CARD */
+.wrapper{
+  width:100%;
+  max-width:850px;
+  background:#ffffff;
+  padding:50px 40px;
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.15);
+  animation:fadeSlide 0.8s ease;
+}
+
+/* SCROLLBAR */
+.wrapper::-webkit-scrollbar{
+  width:6px;
+}
+.wrapper::-webkit-scrollbar-thumb{
+  background:#f3a6c4;
+  border-radius:10px;
+}
+
+/* FADE + SLIDE */
+@keyframes fadeSlide{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* TITLE */
+h1{
+  font-family:'Playfair Display', serif;
+  text-align:center;
+  color:#e91e63;
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#777;
+  font-size:15px;
+  margin-bottom:35px;
+}
+
+/* QUESTION */
+.question{
+  font-weight:600;
+  font-size:18px;
+  margin-bottom:20px;
+  color:#333;
+}
+
+/* FOODPANDA STYLE OPTIONS */
+.option{
+  border:2px solid #f3c3d3;
+  border-radius:18px;
+  margin-bottom:18px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  padding:22px 22px 22px 55px; 
+}
+
+.option:hover{
+  background:#fff3f8;
+  border-color:#e91e63;
+  transform:scale(1.02);
+}
+
+/* Hide radio */
+.option input{
+  display:none;
+}
+
+/* Selected effect */
+.option.active{
+  border-color:#e91e63;
+  background:#ffe6f0;
+  box-shadow:0 8px 25px rgba(233,30,99,0.2);
+}
+
+/* Text */
+.option strong{
+  font-size:17px;
+  color:#444;
+  margin-bottom:5px;
+}
+.option input:checked + .radio-btn{
+  background:#e91e63;
+  box-shadow:0 0 0 4px #ffe6f0;
+}
+.option small{
+  color:#777;
+}
+.option input{
+  display:none;
+}
+.radio-btn{
+  position:absolute;
+  top:20px;
+  left:20px;
+  width:18px;
+  height:18px;
+  border:2px solid #e91e63;
+  border-radius:50%;
+  background:white;
+  transition:0.3s ease;
+}
+
+/* When selected */
+.option input:checked + .radio-btn{
+  background:#e91e63;
+  box-shadow:0 0 0 4px #ffe6f0;
+}
+/* BUTTON */
+button{
+  width:100%;
+  padding:16px;
+  margin-top:25px;
+  background:#e91e63;
+  color:white;
+  border:none;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+button:hover{
+  background:#c2185b;
+  transform:translateY(-2px);
+}
+
+/* RESULT */
+.result{
+  margin-top:30px;
+  text-align:center;
+  font-size:18px;
+  color:#e91e63;
+  font-weight:600;
+  opacity:0;
+  transform:translateY(10px);
+  transition:0.4s ease;
+}
+
+.result.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <h1>Okay! Let’s Plan Our Date! 💕</h1>
+  <p class="subtitle">Choose your perfect Valentine's date, baby 💖</p>
+  <p class="subtitle"></p>
+
+  <div class="question">📍 Where would you like to go?</div>
+
+ <label class="option">
+  <input type="radio" name="location" value="Din Tai Fung (SM Moa)">
+  <span class="radio-btn"></span>
+  <strong>Din Tai Fung (SM Moa)</strong>
+  <small>Restaurant Date</small>
+</label>
+
+<label class="option">
+  <input type="radio" name="location" value="Sky Deck View Bar (Itramuros)">
+  <span class="radio-btn"></span>
+  <strong>Sky Deck View Bar (Itramuros)</strong>
+  <small>Restaurant Date</small>
+</label>
+
+<label class="option">
+  <input type="radio" name="location" value="Roof Manila (Sampaloc, Manila)">
+  <span class="radio-btn"></span>
+  <strong>Roof Manila (Sampaloc, Manila)</strong>
+  <small>Coffee Date</small>
+</label>
+
+<label class="option">
+  <input type="radio" name="location" value="Pound x Flatterie (SM Moa)">
+  <span class="radio-btn"></span>
+  <strong>Pound x Flatterie (SM Moa)</strong>
+  <small>Restaurant Date</small>
+</label>
+
+<label class="option">
+  <input type="radio" name="location" value="Emilias, House of Filipino Food (San Miguel, Manila)">
+  <span class="radio-btn"></span>
+  <strong>Emilias, House of Filipino Food (San Miguel, Manila)</strong>
+  <small>Restaurant Date</small>
+</label>
+
+<div class="question"> When would you like to go? Suggestions are shown based on our availability</div>
+
+ <label class="option">
+  <input type="radio" name="date" value="Feb 14 (Saturday)">
+  <span class="radio-btn"></span>
+  <strong>February 14 (Saturday)</strong>
+  <small>wait kita sa station</small>
+</label>
+
+ <label class="option">
+  <input type="radio" name="date" value="February 15 (Sunday)">
+  <span class="radio-btn"></span>
+  <strong>February 15 (Sunday)</strong>
+  <small>wait kita sa Mall</small>
+</label>
+
+<div class="question"> What time our meet up?</div>
+
+ <label class="option">
+  <input type="radio" name="time" value="9:00AM">
+  <span class="radio-btn"></span>
+  <strong>9:00AM</strong>
+  <small>Departure at 10:00AM in Restaurant</small>
+</label>
+
+<label class="option">
+  <input type="radio" name="time" value="11:00AM">
+  <span class="radio-btn"></span>
+  <strong>11:00AM</strong>
+  <small>Departure at 12:00PM in Restaurant</small>
+</label>
+
+<label class="option">
+  <input type="radio" name="time" value="1:00PM">
+  <span class="radio-btn"></span>
+  <strong>1:00PM</strong>
+  <small>Departure at 2:00PM in Restaurant</small>
+</label>
+
+<div class="question">👗 Choose our dress code</div>
+
+<label class="option">
+  <input type="radio" name="dress" value="Black Top + Black Bottom">
+  <span class="radio-btn"></span>
+  <strong>Black Top + Black Bottom</strong>
+ 
+</label>
+
+<label class="option">
+  <input type="radio" name="dress" value="White Top + Black Bottom ">
+  <span class="radio-btn"></span>
+  <strong>White Top + Black Bottom</strong>
+  
+</label>
+
+<label class="option">
+  <input type="radio" name="dress" value="Pink Top + White Bottom">
+  <span class="radio-btn"></span>
+  <strong>Pink Top + White Bottom</strong>
+
+</label>
+
+<label class="option">
+  <input type="radio" name="dress" value="Red Top + Black Bottom">
+  <span class="radio-btn"></span>
+  <strong>Red Top + Black Bottom</strong>
+  
+  
+</label>
+
+  <!-- You can add more here and it will scroll -->
+
+  <button onclick="confirmDate()">Confirm Date 💗</button>
+
+  <div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+const options = document.querySelectorAll('.option');
+
+options.forEach(option => {
+  option.addEventListener('click', () => {
+
+    const groupName = option.querySelector('input').name;
+
+    document.querySelectorAll(`input[name="${groupName}"]`)
+      .forEach(input => input.closest('.option').classList.remove('active'));
+
+    option.classList.add('active');
+    option.querySelector('input').checked = true;
+  });
+});
+
+function confirmDate(){
+
+  const location = document.querySelector('input[name="location"]:checked');
+  const date = document.querySelector('input[name="date"]:checked');
+  const time = document.querySelector('input[name="time"]:checked');
+  const dress = document.querySelector('input[name="dress"]:checked');
+
+  if(!location || !date || !time || !dress){
+    alert("Please complete all selections 💕");
+    return;
+  }
+
+  // Save to localStorage
+  localStorage.setItem("location", location.value);
+  localStorage.setItem("date", date.value);
+  localStorage.setItem("time", time.value);
+  localStorage.setItem("dress", dress.value);
+
+  // Redirect to voucher page
+  window.location.href = "voucher.html";
+}
+
+</script>
+
+
+
+</body>
+</html>
